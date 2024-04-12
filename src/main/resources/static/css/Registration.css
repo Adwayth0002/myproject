@@ -1,0 +1,90 @@
+@charset "UTF-8";
+/* Style the form container */
+form {
+   max-width: 550px;
+   margin: 0 auto;
+   padding: 20px;
+   background-color:#ffffff;
+   /* background-color: #479cf1; */
+   border-radius: 10px;
+   box-shadow: 0 0 10px rgb(128, 0, 0);
+}
+
+/* Style form group */
+.form-group {
+   margin-bottom: 30px;
+   
+}
+.form-at {
+   margin-bottom: 25px;
+   margin-right: 17px;
+   
+}
+
+/* Style labels */
+label {
+   font-weight: bold;
+   color:black;
+
+}
+
+/* Style form controls */
+.form-control {
+   width: 100%;
+   padding: 10px;
+   border: 1px solid #382020;
+   border-radius: 15px;
+   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.form-in{
+	width: 98%;
+	padding: 10px;
+   border: 1px solid #382020;
+   border-radius: 15px;
+   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+   outline: none;
+   border-color: #22228a;
+   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+
+select.form-control {
+   appearance: none;
+   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='%23000' d='M8 12.5l-6.44-5.37L2.93 6.79 8 11l5.07-4.21 1.37 1.34L8 12.5z'/%3e%3c/svg%3e");
+   background-repeat: no-repeat;
+   background-position: right 0.7em top 50%, 0 0;
+   background-size: 0.65em auto, 100%;
+}
+
+/* Style checkboxes */
+.form-check-input {
+   margin-right: 5px;
+}
+
+/* Style file input */
+.form-control-file {
+   padding: 10px;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   background-color: #fff;
+}
+
+/* Style submit button */
+.btn-primary {
+   padding: 17px 24px;
+   border: none;
+   justify-items: center;
+   border-radius: 5px;
+   background-color: #007bff;
+   color: #fff;
+   cursor: pointer;
+   transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+   background-color: #529a18;
+}
+

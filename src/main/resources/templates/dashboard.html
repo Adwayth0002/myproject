@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color:blue;
+        }
+        .container-fluid {
+            padding: 40px;
+            
+        }
+        .card {
+            border-radius: 20px;
+            height: 500px;
+            width: 1200px;
+            background-image:url(https://scopeindia.org/images/snowpark-skis-headerbg2.jpg);
+            position: relative;
+            top: 20px;
+			left:-150px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .avatar-image {
+            border-radius: 50%;
+            border: 5px solid #ffffff;
+            width: 150px;
+            height: 150px;
+            transition: transform 0.3s ease;
+        }
+        .avatar-image:hover {
+            transform: scale(1.1);
+        }
+        .btn {
+            border-radius: 10px;
+            font-weight: bold;
+        }
+        span{
+            color: #ffffff;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: bolder;
+            font-size: 18px;
+        }
+        strong{
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: bolder;
+            font-size: 18px;
+            color: #100b16;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+            <div class="card mt-4 p-4">
+                <h1 class="text-center mb-4" style="color:orange;">Dashboard</h1>
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <img class="avatar-image mb-3" th:src="'data:image/png;base64,' + ${Avatar}" alt="Avatar">
+                        <div class="btn-group d-flex justify-content-center">
+                            <a class="btn btn-primary mr-2" href="/edit-details">Edit Profile</a>
+                            <a class="btn btn-secondary" href="/course">Courses</a>
+                            
+                        </div><br>
+                        <a class="btn btn-success" href="/logout">Logout</a>
+                    </div>
+                    <div class="col-md-8">
+                        <ul class="list-unstyled">
+                            <li><strong>Name:</strong> <span th:text="${name}"></span></li><br>
+                            <li><strong>Email:</strong> <span th:text="${email}"></span></li><br>
+                            <li><strong>Gender:</strong> <span th:text="${gender}"></span></li><br>
+                            <li><strong>Date of Birth:</strong> <span th:text="${dob}"></span></li><br>
+                            <li><strong>Country:</strong> <span th:text="${country}"></span></li><br>
+                            <li><strong>State:</strong> <span th:text="${state}"></span></li><br>
+                            <li><strong>City:</strong> <span th:text="${city}"></span></li><br>
+                            <li><strong>Hobbies:</strong> <span th:text="${Hobbies}"></span></li><br>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

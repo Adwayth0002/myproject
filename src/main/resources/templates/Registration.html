@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   
+   
+   <link rel="stylesheet" th:href="@{/css/properety.css}">
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   
+   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    
+       <script type="text/javascript" th:src="@{/js/ajax.js}"></script>
+</head> 
+
+<body style="background-image:url(https://scopeindia.org/images/snowpark-skis-headerbg2.jpg);">
+
+<nav class="navbar navbar-expand-lg  sticky-top" style="height: 60px; background-color: #2c1082;">
+        <div class="container">
+            <ul class="navbar-nav mr-auto color-white" >
+                <li class="nav-item">
+                    <a class="nav-link" href="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/course">Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+            </ul>
+            <a class="navbar-brand mx-auto" href="https://scopeindia.org/software-networking-testing-cloud-training-kerala-trivandrum-kochin" title="SCOPE INDIA - Software and Networking Professional Education Center">
+                <img th:src="@{https://scopeindia.org/images/scope-india-logo-bird.png}" alt="SCOPE INDIA" style="width: 70px; height: auto;">
+
+            </a>
+            <ul class="navbar-nav ml-auto color-white">
+                <li class="nav-item">
+                    <a class="nav-link" href="/Dashboard">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contacts">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/form"><span><span class="register bg-darkgreen">Register Now</span></span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+
+<br><br><br><br><br><br>
+
+    <div class="d-flex justify-content-center">
+      <h1 class="display-1" style="color: orange;">Registration</h1>
+      </div>
+      <div class="d-flex justify-content-center">
+      <h3 class="display-4 text-white"><b>It's just a matter of 80 days to an IT job!</b></h3>
+      </div>
+
+
+
+
+   <div class="container mt-5">
+      <div class="row justify-content-center">
+         <div class="col-md-8">
+            
+               <div class="card-body">
+                  <form th:action="@{/register}" method="post" th:object="${user}" enctype="multipart/form-data"  style="background-image: url(https://scopeindia.org/images/si-call-back-bg.jpg); background-size: cover;padding:30px; width: 900px;margin-left: -100px;">
+                     <div class="row">
+                        <div class="col-md-6">
+                           <div class="form-group">
+                              <label for="first_name"><b>First Name</b></label>
+                              <input type="text" th:field="*{firstname}" class="form-control" id="first_name" placeholder="Enter First Name">
+                              <span class="form-text text-danger" th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></span>
+                           </div>
+              
+                           <div class="form-group">
+                              <label for="gender"><b>Gender</b></label>
+                              <select id="gender" th:field="*{gender}" class="form-control">
+                                  <option value="">Select Gender</option>
+                                  <option value="male">Male</option>
+                                  <option value="female">Female</option>
+                                  <option value="others">Others</option>
+                              </select>
+                              <span class="form-text text-danger" th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"></span>
+                           </div>
+
+                           <div class="form-group">
+                              <label for="email"><b>Email</b></label>
+                              <input type="email" th:field="*{email}" class="form-control" id="email" placeholder="Enter Email">
+                              <span class="form-text text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+                           </div>
+                      
+                           <div class="form-group">
+                              <label for="phone"><b>Phone Number</b></label>
+                              <input type="text" th:field="*{phonenumber}" class="form-control" id="phone" placeholder="Enter Phone Number">
+                              <span class="form-text text-danger" th:if="${#fields.hasErrors('phonenumber')}" th:errors="*{phonenumber}"></span>
+                           </div>
+
+                           <div class="form-group">
+                              <label for="hobbies"><b>Hobbies</b></label>
+                              <div class="form-check">
+                                 <input type="checkbox" th:field="*{hobbie}" class="form-check-input" id="hobby1" value="reading">
+                                 <label class="form-check-label" for="hobby1">Reading</label>
+                              </div>
+                              
+                              <div class="form-check">
+                                 <input type="checkbox" th:field="*{hobbie}" class="form-check-input" id="hobby2" value="sports">
+                                 <label class="form-check-label" for="hobby2">Sports</label>
+                              </div>
+                              
+                              <div class="form-check">
+                                 <input type="checkbox" th:field="*{hobbie}" class="form-check-input" id="hobby3" value="gaming">
+                                 <label class="form-check-label" for="hobby3">Gaming</label>
+                              </div>
+                              
+                              <div class="form-check">
+                                 <input type="checkbox" th:field="*{hobbie}" class="form-check-input" id="hobby4" value="travelling">
+                                 <label class="form-check-label" for="hobby4">Travelling</label>
+                              </div>
+                              
+                              <span class="form-text text-danger" th:if="${#fields.hasErrors('hobbie')}" th:errors="*{hobbie}"></span>
+                           </div>
+               
+                           <div class="form-group">
+                              <label for="avatar"><b>Upload Avatar</b></label>
+                              <input type="file" name="avatar" th:field="*{avatar}" class="form-control-file">
+                              <span class="form-text text-danger" th:if="${#fields.hasErrors('avatar')}" th:errors="*{avatar}"></span>
+                           </div>
+                        </div>
+
+                        <div class="col-md-6">
+                           <div class="form-group">
+                              <label for="last_name"><b>Last Name</b></label>
+                              <input type="text" th:field="*{lastname}" class="form-control" id="last_name" placeholder="Enter Last Name">
+                              <span class="form-text text-danger" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></span>
+                           </div>
+
+                           <div class="form-group">
+                              <label for="dob"><b>Date of Birth</b></label>
+                              <input type="date" th:field="*{dateofbirth}" class="form-control" id="dob">
+                              <span class="form-text text-danger" th:if="${#fields.hasErrors('dateofbirth')}" th:errors="*{dateofbirth}"></span>
+                           </div>
+
+                           <div class="form-group">
+                              <label for="country"><b>Country</b></label>
+                              <select id="country" th:field="*{country}" class="form-control">
+                                 <option value="0">Select Country</option>
+                                 <option th:each="country:${countryList}" th:text="${country.countryname}" th:value="${country.id}"></option>
+                              </select>
+                              
+                           </div>
+                  
+                           <div class="form-group">
+                              <label for="state"><b>State</b></label>
+                              <select id="state" th:field="*{state}" class="form-control">
+                                 <option value="0">Select State</option>
+                              </select>
+                              
+                           </div>
+                  
+                           <div class="form-group">
+                              <label for="city"><b>City</b></label>
+                              <select id="city" th:field="*{city}" class="form-control">
+                                 <option value="0">Select City</option>
+                              </select>
+                             
+                           </div>
+                        </div>
+                     </div>
+                     <button type="submit" class="btn btn-primary mx-auto d-block">Register</button>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+  
+   
+    <div class="section mcb-section dark" style="padding-top:30px; padding-bottom:100px;">
+        <div class="container1" style="background-color: #051a69; width: 100%; padding-top: 50px;">
+            <h2 style="padding-left: 180px; color: #fff;">Locations</h2>
+            <div class="container" style="color:#f5efef;">
+                <div class="row gy-5">
+                <div class="col-6">
+                  <div class="card mb-4" style="border: 1px solid white; background-color: #051a69; height: 295px;">
+                    <div class="card-body">
+                      <h3 class="card-title" style="color:#fff;">Technopark TVM Kerala</h3>
+                      <p class="card-text">
+                        <span class="icon"><i class="icon-location"></i></span>
+                        Phase 1, Main Gate, Diamond Arcade, Near Technopark, Trivandrum
+                      </p>
+                      <p class="card-text">
+                        <span class="icon"><i class="icon-call"></i></span>
+                        <a class="footer" href="tel:+919745936073">9745936073</a>
+                      </p>
+                      <p class="card-text">
+                        <span class="icon"><i class="icon-mail"></i></span>
+                        <a class="footer" href="mailto:info@scopeindia.org">technopark@scopeindia.org</a>
+                      </p>
+                      <p class="card-text"> 
+                        <span class="icon"><i class="icon-link"></i></span>
+                        <a class="footer" href="https://scopeindia.org">www.scopeindia.org</a>
+                      </p>
+                      <p class="card-text">
+                        <span class="icon"><i class="icon-map"></i></span>
+                        <a class="footer" href="https://maps.app.goo.gl/hbG8wSiDcW2w9kyH9">Location Route Map</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="card mb-4" style="border: 1px solid white;background-color: #051a69; height: 295px;">
+                    <div class="card-body">
+                      <h3 class="card-title" style="color:#fff;">Thampanoor TVM,Kerala</h3>
+                      <p class="card-text">
+                        <span class="icon"><i class="icon-location"></i></span>
+                        TC 25/1403/3, Athens Plaza, SS Kovil Road, Thampanoor, Trivandrum, Kerala 695001
+                      </p>
+                      <p class="card-text">
+                        <span class="icon"><i class="icon-call"></i></span>
+                        <a class="footer" href="tel:+919745936073">9745936073</a>
+                      </p>
+                      <p class="card-text">
+                        <span class="icon"><i class="icon-mail"></i></span>
+                        <a class="footer" href="mailto:info@scopeindia.org">info@scopeindia.org</a>
+                      </p>
+                      <p class="card-text">
+                        <span class="icon"><i class="icon-link"></i></span>
+                        <a class="footer" href="https://scopeindia.org">www.scopeindia.org</a>
+                      </p>
+                      <p class="card-text">
+                        <span class="icon"><i class="icon-map"></i></span>
+                        <a class="footer" href="https://maps.app.goo.gl/hbG8wSiDcW2w9kyH9">Location Route Map</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="card" style="border: 1px solid white;background-color: #051a69; height: 300px;">
+                    <div class="card-body">
+                      <h3 class="card-title" style="color:#fff;">Kochi,Kerala </h3>
+                      <p class="card-text">
+                        <span class="icon"><i class="icon-location"></i></span>
+                        SCOPE INDIA, Vasanth Nagar Rd, near JLN Metro Station, Kaloor, Kochi, Kerala 682025
+                      </p>
+                      <p class="card-text">
+                        <span class="icon"><i class="icon-call"></i></span>
+                        <a class="footer" href="tel:+917592939481">7592939481</a>
+                      </p>
+                      <p class="card-text">
+                        <span class="icon"><i class="icon-mail"></i></span>
+                        <a class="footer" href="mailto:kochi@scopeindia.org">kochi@scopeindia.org</a>
+                      </p>
+                      <p class="card-text">
+                        <span class="icon"><i class="icon-link"></i></span>
+                        <a class="footer" href="https://scopeindia.org">www.scopeindia.org</a>
+                      </p>
+                      <p class="card-text">
+                        <span class="icon"><i class="icon-map"></i></span>
+                        <a class="footer" href="https://maps.app.goo.gl/hbG8wSiDcW2w9kyH9">Location Route Map</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="card mb-4" style="border: 1px solid white;background-color: #051a69; height: 300px;">
+                    <div class="card-body">
+                      <h3 class="card-title" style="color:#fff;">Nagercoil, Tamil Nadu</h3>
+                      <p class="card-text">
+                        <span class="icon"><i class="icon-location"></i></span>
+                        SCOPE INDIA, Near WCC College, Palace Rd, Nagercoil, Tamil Nadu 629001
+                      </p>
+                      <p class="card-text">
+                        <span class="icon"><i class="icon-call"></i></span>
+                        <a class="footer" href="tel:+918075536185">8075536185</a>
+                      </p>
+                      <p class="card-text">
+                        <span class="icon"><i class="icon-mail"></i></span>
+                        <a class="footer" href="mailto:ngl@scopeindia.org">ngl@scopeindia.org</a>
+                      </p>
+                      <p class="card-text">
+                        <span class="icon"><i class="icon-link"></i></span>
+                        <a class="footer" href="https://scopeindia.org">www.scopeindia.org</a>
+                      </p>
+                      <p class="card-text">
+                        <span class="icon"><i class="icon-map"></i></span>
+                        <a class="footer" href="https://maps.app.goo.gl/hbG8wSiDcW2w9kyH9">Location Route Map</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-3"></div>
+                <div class="col-6">
+                  <div class="card mb-4" style="border: 1px solid white;background-color: #051a69; height: 295px;">
+                    <div class="card-body">
+                      <h3 class="card-title" style="color:#fff;">Nagercoil, Tamil Nadu</h3>
+                      <p class="card-text">
+                        <span class="icon"><i class="icon-location"></i></span>
+                        SCOPE INDIA, Pharma Street, 5/2 Ward 28, Distillery Road, Putheri Nagercoil (Near WCC Jn)
+                      </p>
+                      <p class="card-text">
+                        <span class="icon"><i class="icon-call"></i></span>
+                        <a class="footer" href="tel:+918075536185">8075536185</a>
+                      </p>
+                      <p class="card-text">
+                        <span class="icon"><i class="icon-mail"></i></span>
+                        <a class="footer" href="mailto:ngl@scopeindia.org">ngl@scopeindia.org</a>
+                      </p>
+                      <p class="card-text">
+                        <span class="icon"><i class="icon-link"></i></span>
+                        <a class="footer" href="https://scopeindia.org">www.scopeindia.org</a>
+                      </p>
+                      <p class="card-text">
+                        <span class="icon"><i class="icon-map"></i></span>
+                        <a class="footer" href="https://maps.app.goo.gl/hbG8wSiDcW2w9kyH9">Location Route Map</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-3"></div>
+              </div>
+            </div>
+          </div>
+      </div>
+      
+      <footer id="Footer" class="clearfix" style="background-color: #2c1082;">
+    <div class="widgets_wrapper" style="padding: 120px 0px; ">
+        <div class="container">
+            <div class="row ">
+                <div class="col-md-4 one">
+                    <div class="section mcb-section">
+                        <div class="section_wrapper mcb-section-inner">
+                            <div class="wrap mcb-wrap one-third valign-top clearfix">
+                                <div class="mcb-wrap-inner">
+                                    <div class="column mcb-column one column_column">
+                                        <div class="column_attr clearfix align_center">
+                                            <h4 class="themecolor" style="font-size: 70px; color: #8d96e0;"><b>1000+</b></h4>
+                                            <h5 style="color:#fff;letter-spacing: 2px;"><b>STUDENTS ARE
+                                                <br>TRAINED EVERY YEAR</b></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="section mcb-section">
+                        <div class="section_wrapper mcb-section-inner">
+                            <div class="wrap mcb-wrap one-third valign-top move-up clearfix" style="margin-top: -50px;" data-mobile="no-up">
+                                <div class="mcb-wrap-inner">
+                                    <div class="column mcb-column one column_column">
+                                        <div class="column_attr clearfix align_center" style="width: auto; height:260px ;">
+                                            <h4 class="themecolor" style="font-size: 70px; color: #8d96e0;"><b>30+</b></h4>
+                                            <h5 style="color:#fff;letter-spacing: 2px;" ><b>COMPUTER COURSES</b></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="section mcb-section">
+                        <div class="section_wrapper mcb-section-inner">
+                            <div class="wrap mcb-wrap one-third valign-top clearfix">
+                                <div class="mcb-wrap-inner">
+                                    <div class="column mcb-column one column_column">
+                                        <div class="column_attr clearfix align_center">
+                                            <h4 class="themecolor" style="font-size: 70px; color: #8d96e0;"><b>95%</b></h4>
+                                            <h5 style="color:#fff; letter-spacing: 2px;"><b>STUDENTS ARE GETTING
+                                                <br>PLACED EVERY YEAR </b></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12" style="margin: 50px 0px 0px 0px;">
+                    <aside class="widget_text widget widget_custom_html">
+                        <div class="textwidget custom-html-widget">
+                            <div style="text-align:center">
+                                <div class="image_frame image_item no_link scale-with-grid aligncenter no_border">
+                                    <div class="image_wrapper" >
+                                        <img class="scale-with-grid" th:src="@{https://scopeindia.org/images/snowpark-footer-logo.png}" style="height: 140px; width: 660px;">
+                                    </div>
+                                </div>
+                                <div class="row" style="color: #848de0;">
+                                    <div class="col-md-12">Center for Software, Networking, &amp; Cloud Education</div>
+                                    <div class="col-md-12">Kerala: Technopark TVM | Thampanoor TVM | Kaloor Kochi, Tamil Nadu: Distillery Road | Palace Road Nagercoil</div>
+                                </div>
+                                <hr class="no_line" style="margin:0 auto 30px">
+                                <img class="scale-with-grid" alt="An ISO 9001:2015, IAS &amp; IFS Certified Company" title="An ISO 9001:2015, IAS &amp; IAF Certified Company" th:src="@{https://scopeindia.org/images/iso_iaflogo.png}" width="400" height="100">
+                                <p style="text-align:center;color: #7c8ddf;">An ISO 9001:2015 Certified Company</p>
+                                <p style="text-align:center; color: #7c8ddf;">All Rights Reserved <a class="footer_links" target="_blank" href="https://www.suffixesolutions.com/" title="A trusted IT Partner" style="color: #fff;"> Suffix E Solutions </a>© 2007-2024</p>
+                               
+                                <div class="row">
+                                    <div class="col-md-2"><a class="footer_links" href="tel:+919745936073" style="color: #fff;">9745936073 (TPK) </a></div>
+                                    <div class="col-md-2"><a class="footer_links" href="tel:+919745936073" style="color: #fff;">9745936073 (TVM) </a></div>
+                                    <div class="col-md-2"><a class="footer_links" href="tel:+917592939481" style="color: #fff;">7592939481 (EKM) </a></div>
+                                    <div class="col-md-2"><a class="footer_links" href="tel:+918075536185" style="color: #fff;">8075536185 (NGL) </a></div>
+                                    <div class="col-md-2"><a class="footer_links" target="_blank" href="mailto:info@scopeindia.org" style="outline: none; color: #fff;">info@scopeindia.org</a></div>
+                                </div>
+                        
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+</body>
+</html>

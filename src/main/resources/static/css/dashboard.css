@@ -1,0 +1,11 @@
+.ava {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    
+}
+
+.avatar-image {
+    max-width: 100%;
+    height: 250px;
+}

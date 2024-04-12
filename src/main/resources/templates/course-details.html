@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Details</title>
+    <!-- Link Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Your custom CSS -->
+    <link rel="stylesheet" th:href="@{/css/properety.css}">
+    <style>
+        /* Add your custom CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            background-image: url(https://scopeindia.org/images/snowpark-skis-headerbg2.jpg);
+             background-repeat: no-repeat;
+             background-size: cover; /* Adjusted property */
+   
+        }
+        h1 {
+            color: #343a40;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        /* Example of Bootstrap classes */
+        .course-details {
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .course-details li {
+            font-size: 18px;
+        }
+       
+        .enroll-link {
+            display: inline-block;
+            padding: 10px 20px;
+          
+            background-color: blue; 
+            color: rgb(0, 255, 0);
+            border-radius: 8px;
+          
+        }
+        
+       
+        .contact-form-container {
+            padding: 3% 0;
+            
+            background-repeat: no-repeat;
+            background-position: center top;
+            color: #ffffff;
+        }
+        .form-control {
+            border-radius: 20px;
+        }
+        .btn-call-me {
+            background-color: #009318;
+            color: #ffffff;
+            border-radius: 20px;
+            padding: 12px 24px;
+            font-size: 18px;
+        }
+        .btn-call-me:hover {
+            background-color: #007a0e;
+        }
+          .li {
+        margin-bottom: 10px;
+        background-color: #f1fbf4;
+        width: 700px;
+        
+        border-radius: 7px;
+        box-shadow: 5px 2px 4px rgba(7, 2, 22, 0.1);
+        transition: transform 0.1s ease;
+        margin-left: 395px;
+       
+        
+    }
+
+    li:hover {
+        transform: translateY(-3px);
+    }
+         
+       
+    </style>
+</head>
+<body>
+    
+   <nav class="navbar navbar-expand-lg  sticky-top" style="height: 60px; background-color: #2c1082; width:100%;">
+        <div class="container">
+            <ul class="navbar-nav mr-auto color-white" >
+                <li class="nav-item">
+                    <a class="nav-link" href="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/course">Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+            </ul>
+            <a class="navbar-brand mx-auto" href="https://scopeindia.org/software-networking-testing-cloud-training-kerala-trivandrum-kochin" title="SCOPE INDIA - Software and Networking Professional Education Center">
+                <img th:src="@{https://scopeindia.org/images/scope-india-logo-bird.png}" alt="SCOPE INDIA" style="width: 70px; height: auto;">
+
+            </a>
+            <ul class="navbar-nav ml-auto color-white">
+                <li class="nav-item">
+                    <a class="nav-link" href="/Dashboard">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contacts">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/form"><span><span class="register bg-darkgreen">Register Now</span></span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+<br><br><br>
+
+    <div class="column_attr clearfix align_center">
+        <div class="text-center">
+            <h1 th:style="'color: orange; font-size: 60px;'">Get a course & Enrich your career</h1>
+            <h2 th:style="'color: rgb(217, 230, 227); font-size: 30px; font-style:oblique ;'">Let's discuss your career, 24/7 free Consultation</h2>
+            <a class="footer_links" href="https://g.page/r/CXbW6SZGeJPfEAE" title="SCOPE INDIA Google Map Location to Trivandrum, Kerala" target="_blank">
+                <img th:src="@{https://scopeindia.org/images/5star.png}" class="star5" style="height: 160px;">
+            </a>
+            <p class="text-center" th:style="'color: rgb(217, 230, 227)'">Google 4.9 * Rated Institute</p>
+        </div>
+    </div>
+
+
+
+    <div class="container">
+        <div class="course-details">
+            <h1>Course Details</h1>
+            <ul>
+                <li><strong>Course Name:</strong> <span th:text="${course.coursename}"></span></li>
+                <li><strong>Course Duration:</strong> <span th:text="${course.courseduration}"></span></li>
+                <li><strong>Course Fee:</strong> <span th:text="${course.coursefee}"></span></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Enroll link styled with Bootstrap classes -->
+    <a class="enroll-link" th:href="@{'/saveid/' + ${courseid} + '?email=' + ${email}}">Click here to enroll in the course</a>
+    
+
+    <br><br><br>
+
+    <div class="container contact-form-container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="embed-responsive embed-responsive-16by9" style="height: 650px;">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/eIFj4nYNYbw?autoplay=1&amp;rel=0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="col-md-6">
+               <!--   <h1 class="mt-4 mt-md-0" style="color: black;">We are open 365 days</h1>
+                <p class="mb-4" style="color: black;">SCOPE INDIA is open 24/7 to talk to you and listen to your queries.</p>-->
+                <div class="opening_hours">
+                    <div class="opening_hours_wrapper">
+                    
+                    
+         <form th:action="@{/sendmail}" method="POST" th:object="${usercontact}">
+    <h3 class="mb-3" style="color: #8bc435; text-align: left;"> <strong>GET A FREE CALL BACK</strong> </h3>
+    <div class="form-group" style="text-align: left;">
+        <label for="name" style="color: black; text-align: left;"><b>Name:</b>  </label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" th:field="*{name}">
+    </div>
+    <div class="form-group" style="text-align: left;">
+        <label for="email" style="color: black;text-align: left;"><b>Number:</b></label>
+        <input type="text" class="form-control" id="number" name="number" placeholder="Enter your number" th:field="*{number}">
+    </div>
+    <div class="form-group" style="color: black;text-align: left;">
+        <label for="message"><b>Message:</b></label>
+        <textarea class="form-control" id="message" name="message" placeholder="Enter your message" th:field="*{message}"></textarea>
+    </div>
+    <button type="submit" class="btn btn-call-me" style="background-color: #848de0;">Call Me</button>
+</form>
+      <h3 style="color: violet;" th:text="${sucess}"></h3>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="no_line" style="max-width: 7px;">
+    <div class="row">
+        
+        <div class="col-12 mb-3">
+            <a class="btn btn-warning btn-block button_size_2 button_js" href="/course">More Courses>></a>
+        </div>
+        <div class="col-12 mb-3">
+            <a class="btn btn-primary btn-block button_size_2 button_js" href="/form">Register Now!</a>
+        </div>
+        
+    </div>
+
+
+    <footer id="Footer" class="clearfix" style="background-color: #2c1082;">
+        <div class="widgets_wrapper" style="padding: 120px 0px; ">
+            <div class="container">
+                <div class="row ">
+                    <div class="col-md-4 one">
+                        <div class="section mcb-section">
+                            <div class="section_wrapper mcb-section-inner">
+                                <div class="wrap mcb-wrap one-third valign-top clearfix">
+                                    <div class="mcb-wrap-inner">
+                                        <div class="column mcb-column one column_column">
+                                            <div class="column_attr clearfix align_center">
+                                                <h4 class="themecolor" style="font-size: 70px; color: #8d96e0;"><b>1000+</b></h4>
+                                                <h5 style="color:#fff;letter-spacing: 2px;"><b>STUDENTS ARE
+                                                    <br>TRAINED EVERY YEAR</b></h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="section mcb-section">
+                            <div class="section_wrapper mcb-section-inner">
+                                <div class="wrap mcb-wrap one-third valign-top move-up clearfix" style="margin-top: -50px;" data-mobile="no-up">
+                                    <div class="mcb-wrap-inner">
+                                        <div class="column mcb-column one column_column">
+                                            <div class="column_attr clearfix align_center" style="width: auto; height:260px ;">
+                                                <h4 class="themecolor" style="font-size: 70px; color: #8d96e0;"><b>30+</b></h4>
+                                                <h5 style="color:#fff;letter-spacing: 2px;" ><b>COMPUTER COURSES</b></h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="section mcb-section">
+                            <div class="section_wrapper mcb-section-inner">
+                                <div class="wrap mcb-wrap one-third valign-top clearfix">
+                                    <div class="mcb-wrap-inner">
+                                        <div class="column mcb-column one column_column">
+                                            <div class="column_attr clearfix align_center">
+                                                <h4 class="themecolor" style="font-size: 70px; color: #8d96e0;"><b>95%</b></h4>
+                                                <h5 style="color:#fff; letter-spacing: 2px;"><b>STUDENTS ARE GETTING
+                                                    <br>PLACED EVERY YEAR </b></h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="row">
+                    <div class="col-md-12" style="margin: 50px 0px 0px 0px;">
+                        <aside class="widget_text widget widget_custom_html">
+                            <div class="textwidget custom-html-widget">
+                                <div style="text-align:center">
+                                    <div class="image_frame image_item no_link scale-with-grid aligncenter no_border">
+                                        <div class="image_wrapper" >
+                                            <img class="scale-with-grid" th:src="@{https://scopeindia.org/images/snowpark-footer-logo.png}" style="height: 140px; width: 660px;">
+                                        </div>
+                                    </div>
+                                    <div class="row" style="color: #848de0;">
+                                        <div class="col-md-12">Center for Software, Networking, &amp; Cloud Education</div>
+                                        <div class="col-md-12">Kerala: Technopark TVM | Thampanoor TVM | Kaloor Kochi, Tamil Nadu: Distillery Road | Palace Road Nagercoil</div>
+                                    </div>
+                                    <hr class="no_line" style="margin:0 auto 30px">
+                                    <img class="scale-with-grid" alt="An ISO 9001:2015, IAS &amp; IFS Certified Company" title="An ISO 9001:2015, IAS &amp; IAF Certified Company" th:src="@{https://scopeindia.org/images/iso_iaflogo.png}" width="400" height="100">
+                                    <p style="text-align:center;color: #7c8ddf;">An ISO 9001:2015 Certified Company</p>
+                                    <p style="text-align:center; color: #7c8ddf;">All Rights Reserved <a class="footer_links" target="_blank" href="https://www.suffixesolutions.com/" title="A trusted IT Partner" style="color: #fff;"> Suffix E Solutions </a>© 2007-2024</p>
+                                   
+                                    <div class="row">
+                                        <div class="col-md-2"><a class="footer_links" href="tel:+919745936073" style="color: #fff;">9745936073 (TPK) </a></div>
+                                        <div class="col-md-2"><a class="footer_links" href="tel:+919745936073" style="color: #fff;">9745936073 (TVM) </a></div>
+                                        <div class="col-md-2"><a class="footer_links" href="tel:+917592939481" style="color: #fff;">7592939481 (EKM) </a></div>
+                                        <div class="col-md-2"><a class="footer_links" href="tel:+918075536185" style="color: #fff;">8075536185 (NGL) </a></div>
+                                        <div class="col-md-2"><a class="footer_links" target="_blank" href="mailto:info@scopeindia.org" style="outline: none; color: #fff;">info@scopeindia.org</a></div>
+                                    </div>
+                            
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    
+
+    <!-- Link Bootstrap JS (optional, only if you need Bootstrap JavaScript features) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
